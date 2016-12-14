@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}, {
+            "name": "src/main",
+            "path": "src/main/java/uk/co/jakestanley"
+        }, {
+            "name": "src/test",
+            "path": "src/test/java/uk/co/jakestanley"
+        }
+	]
+}
