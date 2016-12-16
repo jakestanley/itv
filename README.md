@@ -5,7 +5,6 @@
 - skus.csv would contain SKU references and their normal prices (SKU,PRICE)
 - offers.csv would provide offers criteria and will be matched against the data provided in the SKUs file (SKU,QUANTITY,OFFERPRICE)
 - SKU item names will be represented with strings and their prices with integers, and they'll be stored in a HashMap<String, Integer> 
-- purchases will use the "checkout" metaphor and the user // TODO
 - only positive, non-zero SKU prices are accepted
 - one offer per SKU is accepted
 
@@ -18,8 +17,10 @@
 
 # Tools and packages used
 
-## Java libraries
+## Libraries
 - [lombok](http://projectlombok.org)
+
+## Software
 - macOS Sierra
 - Terminal
 - brew
