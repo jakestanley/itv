@@ -18,7 +18,7 @@
 
 # Tools and packages used
 
-## Java libraries // TODO add links
+## Java libraries
 - [lombok](http://projectlombok.org)
 - macOS Sierra
 - Terminal
