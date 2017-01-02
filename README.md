@@ -22,6 +22,7 @@
 - [Spring framework](http://spring.io) for creating a RESTful web app
 - JUnit for general tests
 - Mockito for testing controllers
+- json-smart for constructing mock JSON objects
 
 ## Software
 - macOS Sierra
