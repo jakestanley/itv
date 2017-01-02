@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,17 +41,31 @@ public class CartController {
 	}
 	
 	@RequestMapping(value="/{cartId}/item", method=RequestMethod.POST)
-	private ItemDto addItemToCart(	@PathVariable("cartId") Long cartId, 
-									@RequestBody ItemDto item) {
-
+	private ResponseEntity<ItemDto> addItemToCart(
+			@PathVariable("cartId") Long cartId, @RequestBody ItemDto item) {
+		
 		try {
 			cartService.addItemToCart(cartId, mapToEntity(item));
 		} catch (NotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); // TODO logger
+			return new ResponseEntity<ItemDto>(item, HttpStatus.NOT_FOUND);
 		}
 
-		return item;
+		return new ResponseEntity<ItemDto>(item, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/{cartId}", method=RequestMethod.GET)
+	private ResponseEntity<CartDto> getCart(
+			@PathVariable("cartId") Long cartId) {
+		
+		try {
+			Cart cart = cartService.getCart(cartId);
+			CartDto dto = mapToDto(cart);
+			return new ResponseEntity<CartDto>(dto, HttpStatus.OK);
+		} catch (NotFoundException e) {
+			e.printStackTrace(); // TODO logger
+			return new ResponseEntity<CartDto>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	/**
@@ -58,7 +74,7 @@ public class CartController {
 	 * @return
 	 */
 	@RequestMapping(value="/{cartId}/checkout")
-	private String getCartCheckout(@PathVariable("cartId") Long cartId) {
+	private ResponseEntity<String> getCartCheckout(@PathVariable("cartId") Long cartId) {
 
 		String formattedValue = "";
 
@@ -66,11 +82,11 @@ public class CartController {
 			int cartValue = cartService.getCartCheckout(cartId);
 			formattedValue = getFormattedPrice(cartValue);
 		} catch (NotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
 		}
 		
-		return formattedValue;
+		return new ResponseEntity<String>(formattedValue, HttpStatus.OK);
 	}
 
 	private Item mapToEntity(ItemDto dto) throws NotFoundException {
