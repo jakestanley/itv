@@ -38,7 +38,7 @@ public class CartController {
 		return dto;
 	}
 	
-	@RequestMapping(value="/{cartId}/items", method=RequestMethod.POST)
+	@RequestMapping(value="/{cartId}/item", method=RequestMethod.POST)
 	private ItemDto addItemToCart(	@PathVariable("cartId") Long cartId, 
 									@RequestBody ItemDto item) {
 

@@ -32,3 +32,14 @@
 - Sourcetree
 - Sublime Text 3
 - Eclipse
+
+## Usage
+// TODO HTTP response codes on exception
+
+| url                       | verb  | description                                   |
+|---------------------------|-------|-----------------------------------------------|
+| /cart/new                 | GET   | retrieves a new, empty cart                   |
+| /cart/{cartId}/item       | POST  | add an item object to a cart                  |
+| /cart/{cartId}/checkout   | GET   | gets the formatted total value of the cart    |
+| /offer                    | POST  | add a new special offer                       |
+| /sku                      | POST  | add a new SKU                                 |

@@ -13,7 +13,7 @@ import uk.co.jakestanley.exceptions.NotFoundException;
 import uk.co.jakestanley.services.OfferService;
 
 @RestController
-@RequestMapping(value="/offers")
+@RequestMapping(value="/offer")
 public class OfferController {
 
 	@Autowired
