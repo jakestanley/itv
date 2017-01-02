@@ -17,8 +17,11 @@
 
 # Tools and packages used
 
-## Libraries
-- [lombok](http://projectlombok.org)
+## Libraries and frameworks
+- [Lombok](http://projectlombok.org) for injecting auto-generated getters, setters, constructors, equals and hashcode methods
+- [Spring framework](http://spring.io) for creating a RESTful web app
+- JUnit for general tests
+- Mockito for testing controllers
 
 ## Software
 - macOS Sierra
@@ -31,7 +34,7 @@
 - git
 - Sourcetree
 - Sublime Text 3
-- Eclipse
+- Eclipse (and various plugins)
 
 ## Usage
 // TODO HTTP response codes on exception
