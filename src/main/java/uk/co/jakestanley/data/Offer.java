@@ -19,7 +19,6 @@ public class Offer implements Serializable {
 	private static final int MIN_QUANTITY = 1;
 	private static final int MIN_PRICE = 1;
 
-	private String name;
 	private String sku;
     private Integer quantity;
     private Integer price;
