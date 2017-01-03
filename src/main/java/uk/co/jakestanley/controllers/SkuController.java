@@ -33,19 +33,4 @@ public class SkuController {
 		}		
 		return new ResponseEntity<Sku>(sku, HttpStatus.OK);
 	}
-
-//	/**
-//	 * Return an SKU whose name matches the provided parameter
-//	 * @param name
-//	 */
-//	@RequestMapping(method=RequestMethod.GET, value="/{name}")
-//	private Sku getSingleSku(@PathVariable("name") String name){
-//		try {
-//			stockService.getSku(name);
-//		} catch (NotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}	
 }
